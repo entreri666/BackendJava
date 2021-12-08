@@ -15,7 +15,7 @@ public class AddImagesToAlbumTest extends BaseTest {
     String albumHash;
 
     @BeforeEach
-    void AlbumCreationTest() {
+    void AlbumCreation() {
         albumHash = given()
                 .headers("Authorization", token)
                 .when()

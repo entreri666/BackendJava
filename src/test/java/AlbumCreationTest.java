@@ -16,6 +16,7 @@ public class AlbumCreationTest extends BaseTest {
     void AlbumCreationTest() {
         albumDeleteHash = given()
                 .headers("Authorization", token)
+                .multiPart("image", new File(PATH_TO_IMAGE))
                 .expect()
                 .statusCode(200)
                 .body("data", is(notNullValue()))

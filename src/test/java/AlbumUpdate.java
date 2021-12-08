@@ -10,11 +10,11 @@ import static org.hamcrest.core.IsNull.notNullValue;
 
 public class AlbumUpdate extends BaseTest {
 
-    String albumDeleteHash;
+    Response albumDeleteHash;
     String albumHash;
 
     @BeforeEach
-    void AlbumCreationTest() {
+    void AlbumCreation() {
         albumHash = given()
                 .headers("Authorization", token)
                 .when()
@@ -38,12 +38,7 @@ public class AlbumUpdate extends BaseTest {
                 .body("success", equalTo(true))
                 .when()
                 .put("https://api.imgur.com/3/album/{albumHash}", albumHash)
-                .prettyPeek()
-                .then()
-                .extract()
-                .response()
-                .jsonPath()
-                .getString("data.deletehash");
+                .prettyPeek();
     }
 
     @AfterEach
@@ -51,7 +46,7 @@ public class AlbumUpdate extends BaseTest {
         given()
                 .headers("Authorization", token)
                 .when()
-                .delete("https://api.imgur.com/3/album/{albumDeleteHash}", albumDeleteHash)
+                .delete("https://api.imgur.com/3/album/{albumHash}", albumHash)
                 .prettyPeek()
                 .then()
                 .statusCode(200);

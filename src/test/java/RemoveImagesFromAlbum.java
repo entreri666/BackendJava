@@ -11,7 +11,6 @@ import static org.hamcrest.core.IsNull.notNullValue;
 public class RemoveImagesFromAlbum extends BaseTest {
 
     String albumHash;
-    String image;
 
     @BeforeEach
     void AlbumCreation() {
@@ -25,23 +24,6 @@ public class RemoveImagesFromAlbum extends BaseTest {
                 .response()
                 .jsonPath()
                 .getString("data.deletehash");
-    }
-
-    @BeforeEach
-    void AddImagesToAlbum() {
-        image = given()
-                .headers("Authorization", token)
-                .multiPart("image", new File(PATH_TO_IMAGE))
-                .expect()
-                .statusCode(200)
-                .when()
-                .post("https://api.imgur.com/3/album/{albumDeleteHash}/add", albumHash)
-                .prettyPeek()
-                .then()
-                .extract()
-                .response()
-                .jsonPath()
-                .getString("data.id");
     }
 
     @Test

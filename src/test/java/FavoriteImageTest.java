@@ -8,10 +8,9 @@ import java.io.File;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-public class FavoriteImageTest extends BaseTest{
+public class FavoriteImageTest extends BaseTest {
 
     String imageHash;
-    Response image;
 
     @BeforeEach
     void setUp() {
@@ -29,8 +28,8 @@ public class FavoriteImageTest extends BaseTest{
     }
 
     @Test
-    void FavoriteImageTest(){
-        image = given()
+    void FavoriteImageTest() {
+        given()
                 .headers("Authorization", token)
                 .expect()
                 .statusCode(200)
@@ -46,7 +45,7 @@ public class FavoriteImageTest extends BaseTest{
         given()
                 .headers("Authorization", token)
                 .when()
-                .delete("https://api.imgur.com/3/account/{username}/image/{deleteHash}", "entreri666", image)
+                .delete("https://api.imgur.com/3/account/{username}/image/{imageHash}", "entreri666", imageHash)
                 .prettyPeek()
                 .then()
                 .statusCode(200);

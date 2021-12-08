@@ -11,7 +11,6 @@ import static org.hamcrest.core.IsEqual.equalTo;
 public class UpdateImageTest extends BaseTest {
 
     String imageDeleteHash;
-    Response image;
 
     @BeforeEach
     void setUp() {
@@ -29,8 +28,8 @@ public class UpdateImageTest extends BaseTest {
     }
 
     @Test
-    void imageTest () {
-        image = given()
+    void UpdateImageTest() {
+        given()
                 .headers("Authorization", token)
                 .param("title", "new name")
                 .expect()
@@ -47,7 +46,7 @@ public class UpdateImageTest extends BaseTest {
         given()
                 .headers("Authorization", token)
                 .when()
-                .delete("https://api.imgur.com/3/account/{username}/image/{deleteHash}", "entreri666", image)
+                .delete("https://api.imgur.com/3/account/{username}/image/{deleteHash}", "entreri666", imageDeleteHash)
                 .prettyPeek()
                 .then()
                 .statusCode(200);
