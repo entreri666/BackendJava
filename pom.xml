@@ -72,12 +72,6 @@
             <artifactId>logback-classic</artifactId>
             <version>1.2.3</version>
         </dependency>
-        <dependency>
-            <groupId>org.example</groupId>
-            <artifactId>BackendJava</artifactId>
-            <version>1.0</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 
     <build>
@@ -124,5 +118,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
