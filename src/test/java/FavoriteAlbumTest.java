@@ -40,15 +40,4 @@ public class FavoriteAlbumTest extends BaseTest {
                 .post("https://api.imgur.com/3/album/{albumDeleteHash}/favorite", albumHash)
                 .prettyPeek();
     }
-
-    @AfterEach
-    void tearDown() {
-        given()
-                .headers("Authorization", token)
-                .when()
-                .delete("https://api.imgur.com/3/album/{albumDeleteHash}", albumHash)
-                .prettyPeek()
-                .then()
-                .statusCode(200);
-    }
 }

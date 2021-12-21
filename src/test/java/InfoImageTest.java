@@ -40,15 +40,4 @@ public class InfoImageTest extends BaseTest {
                 .get("https://api.imgur.com/3/image/{imageHash}", imageHash)
                 .prettyPeek();
     }
-
-    @AfterEach
-    void tearDown() {
-        given()
-                .headers("Authorization", token)
-                .when()
-                .delete("https://api.imgur.com/3/account/{username}/image/{imageHash}", "entreri666", imageHash)
-                .prettyPeek()
-                .then()
-                .statusCode(200);
-    }
 }

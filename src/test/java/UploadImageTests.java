@@ -27,7 +27,7 @@ public class UploadImageTests extends BaseTest {
             encodedFile = Base64.getEncoder().encodeToString(byteArray);
         }
 
-        @Test
+    /*    @Test
         void uploadBase64Test() {
             uploadedImageId = given()
                     .headers("Authorization", token)
@@ -43,7 +43,7 @@ public class UploadImageTests extends BaseTest {
                     .response()
                     .jsonPath()
                     .getString("data.deletehash");
-        }
+        }*/
 
 
         @Test
